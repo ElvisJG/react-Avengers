@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import './App.css';
 
 import Home from './components/Home';
 import AvengersList from './components/AvengersList';
+import AvengerPage from './components/AvengerPage';
 
 import avengers from './data';
 
@@ -18,8 +19,17 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <Route path='/' component={Home} />
-        <Route path='/avengers' component={AvengersList} />
+        <ul className='navbar'>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to='/avengers'>Avengers</Link>
+          </li>
+        </ul>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/avengers' component={AvengersList} />
+        <Route exact path='/avengers/:id' component={AvengerPage} />
       </div>
     );
   }
