@@ -20,11 +20,17 @@ function AvengerPage(props) {
       <Link to={`/avengers/${props.match.params.id}/movies`}>Movies</Link>
       <Route
         path='/avengers/:id/details'
-        render={props => <AvengerDetails details={avenger.description} />}
+        render={props => (
+          <AvengerDetails
+            className='avenger-button'
+            {...props}
+            details={avenger.description}
+          />
+        )}
       />
       <Route
         path='/avengers/:id/movies'
-        render={props => <AvengerMovies movies={avenger.movies} />}
+        render={props => <AvengerMovies {...props} movies={avenger.movies} />}
       />
       <Link to='/avengers'>Return to Avengers Database</Link>
     </div>
