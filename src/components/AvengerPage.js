@@ -32,7 +32,9 @@ function AvengerPage(props) {
         path='/avengers/:id/movies'
         render={props => <AvengerMovies {...props} movies={avenger.movies} />}
       />
-      <Link to='/avengers'>Return to Avengers Database</Link>
+      <div>
+        <Link to='/avengers'>Return to Avengers Database</Link>
+      </div>
     </div>
   );
 }
